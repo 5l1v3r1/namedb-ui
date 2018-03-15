@@ -1,0 +1,28 @@
+extend layout
+
+
+block content
+  - name = name.charAt(0).toUpperCase() + name.slice(1);
+  h1(id="name") #{name}
+
+  table(id="sentiments")
+    tr
+      th Reference
+      th Verse
+      th Sentiment
+    each item in occurances
+      tr
+        td #{item.reference}
+        td !{item.sentence.replace(name,"<span style='color: darkgreen; font-weight: bold; '>" + name + "</span>")}
+        td 
+            if (item.neg >= .2 && item.neg < .7)
+                span somewhat negative
+            
+            if (item.neg >= .7)
+                span very negative
+
+            if (item.pos >= .2 && item.pos < .7)
+                span somewhat positive
+            
+            if (item.pos >= .7)
+                span very positive
