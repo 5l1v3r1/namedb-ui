@@ -32,12 +32,19 @@ describe('Names model', async function() {
 
         names = await model.names.getRandom(9);
         assert.equal(names.length, 9, '9 names must be returned when the argument is 10');
+    });
+
+    it("getStartingWith returns all names starting with parameter", async function() {
+
+        let names = await model.names.getStartingWith("M");
+
+
+        assert.notEqual(names.length, 0, "Must return names beginning with 'M' from the db");
 
         let name = '';
         for (name of names) {
-            assert.notEqual(name.occurances, null, 'Occurances must be returned');
+            assert.ok(name.name.startsWith("M") || name.name.startsWith("m"), "all names returned must begin with 'M'");
         }
-
     });
 
 });

@@ -6,7 +6,7 @@ const puppeteer = require('puppeteer');
 
 
 
-describe('Names page', function() {
+describe('Single name page', function() {
     let browser, page, content;
 
     before(async function() {
