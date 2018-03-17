@@ -1,5 +1,14 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1 Bible Name Database
+  
+
+
+  div(id='random_names')
+    h2 Random Names
+    ul
+      each name in names
+        li 
+          a(href='/name/'+name.name) #{name.name}
+

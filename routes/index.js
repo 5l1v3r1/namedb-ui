@@ -8,10 +8,10 @@ const model = {
 
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', async function(req, res, next) {
   let names = await model.names.getRandom(10);
 
-  res.render('index', names );
+  res.render('index', {names: names});
 });
 
 router.get('/name/:name', async function(req, res, next) {
