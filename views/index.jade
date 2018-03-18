@@ -1,8 +1,13 @@
 extends layout
 
 block content
-  h1 Bible Name Database
-  
+
+  div(id='alphabetic_names')
+    h2 View Names Beginning with...
+    ul
+      each letter in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
+        li
+          a(href='/alphabetic/' + letter) #{letter}
 
 
   div(id='random_names')
@@ -12,10 +17,4 @@ block content
         li 
           a(href='/name/'+name.name) #{name.name}
 
-  div(id='alphabetic_names')
-    h2 Names beginning with...
-    ul
-      each letter in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
-        li
-          a(href='/alphabetic/' + letter) #{letter}
 

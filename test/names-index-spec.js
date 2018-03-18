@@ -43,7 +43,8 @@ describe('Index page', function() {
             links: Array.from(document.querySelectorAll('#alphabetic_names li a')).map((e) => e.getAttribute('href'))
           }});
 
-        assert.equal(content.heading, 'Names beginning with...', 'Heading must be "Names begining with..."');
+
+        assert.equal(content.heading, 'View Names Beginning with...', 'Heading must be "Names begining with..."');
         
         
         let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";

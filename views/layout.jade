@@ -4,4 +4,14 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    block content
+    header
+      h1 
+        a(href="/") Bible Names Database
+      div <i>Every name</i> in the Bible and <i>every verse</i> in which the name is used!
+
+    div(class="content")
+      block content
+
+  footer
+    div 
+      i The names were extracted from the bible using #[a(href="https://www.nltk.org") NLTK] and sentiment scores were generated using #[a(href="http://www.nltk.org/_modules/nltk/sentiment/vader.html") Vadar]. Please send suggestions to: namedb at alterlife.org.
