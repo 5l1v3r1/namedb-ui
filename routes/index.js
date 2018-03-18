@@ -24,4 +24,15 @@ router.get('/name/:name', async function(req, res, next) {
     res.render('name', name)
 });
 
+router.get('/alphabetic/:startswith', async function(req,res,next) {
+
+  let names = await model.names.getStartingWith(req.params.startswith);
+
+
+  if (names === null)
+    res.status('404').send('no matching names');
+  else
+    res.render('alphabetic_names', {names: names, startswith: req.params.startswith});
+});
+
 module.exports = router;

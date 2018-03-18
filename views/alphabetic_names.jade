@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  div(id='alphabetic_names')
+    h1 Names beginning with '#{startswith.toUpperCase()}'
+    ul
+    each name in names
+        li 
+          a(href='/name/'+name.name) #{name.name}
+            
+
