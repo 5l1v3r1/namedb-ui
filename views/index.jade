@@ -12,3 +12,10 @@ block content
         li 
           a(href='/name/'+name.name) #{name.name}
 
+  div(id='alphabetic_names')
+    h2 Names beginning with...
+    ul
+      each letter in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
+        li
+          a(href='/alphabetic/' + letter) #{letter}
+

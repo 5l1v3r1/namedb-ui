@@ -33,4 +33,24 @@ describe('Index page', function() {
         }
     });
 
+    it('Should have a section to link to names beginning with each alphabet', async function() {
+        await page.goto('http://localhost:3000/');   
+
+
+        content = await page.evaluate(() => { return {
+            heading: document.querySelector('#alphabetic_names h2').innerHTML,
+            letters: Array.from(document.querySelectorAll('#alphabetic_names li a')).map((e) => e.innerHTML),
+            links: Array.from(document.querySelectorAll('#alphabetic_names li a')).map((e) => e.getAttribute('href'))
+          }});
+
+        assert.equal(content.heading, 'Names beginning with...', 'Heading must be "Names begining with..."');
+        
+        
+        let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        for(let i = 0;i < letters.length;i++) {
+            assert.ok(content.letters[i] == letters[i], 'All characters must be linked');
+            assert.ok(content.links[i].endsWith("alphabetic/" + letters[i]), "Should be a valid link to alphabetic names page");
+        }
+    });
+
 });
